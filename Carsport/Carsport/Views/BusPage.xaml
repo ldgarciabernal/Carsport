@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.BusPage"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="{i18n:Translate BusTitle}">
+    <ContentPage.ToolbarItems>
+        <OnPlatform x:TypeArguments="ToolbarItem">
+             <OnPlatform.iOS>
+                  <ToolbarItem Text="{i18n:Translate HomeNavBar}" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.iOS>
+             <OnPlatform.Android>
+                 <ToolbarItem Icon="icon_home" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Bus}">
+        <StackLayout
+                Margin="25">
+                <Label
+                    Margin="0"
+                    FontSize="Medium"
+                    HorizontalOptions="StartAndExpand"
+                    Text="{i18n:Translate LabelCommuneOrigin}"
+                    VerticalOptions="CenterAndExpand">
+                </Label>
+                <Picker
+                    Margin="0"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding OriginCommunes}"
+                    SelectedItem="{Binding OriginCommune, Mode=TwoWay}"
+                    Title="{i18n:Translate PickerCommuneOrigin}">
+                </Picker>
+                <Label 
+                    Margin="0"
+                    FontSize="Medium"
+                    HorizontalOptions="StartAndExpand"
+                    Text="{i18n:Translate LabelCoreOrigin}"
+                    VerticalOptions="CenterAndExpand">
+                </Label>
+                <Picker
+                    Margin="0"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding OriginCores}"
+                    SelectedItem="{Binding OriginCore, Mode=TwoWay}"
+                    Title="{i18n:Translate PickerCoreOrigin }">
+                </Picker>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}">
+                </ActivityIndicator>
+                <Label 
+                    Margin="0"
+                    FontSize="Medium"
+                    HorizontalOptions="StartAndExpand"
+                    Text="{i18n:Translate LabelCommuneDestiny}"
+                    VerticalOptions="CenterAndExpand">
+                </Label>
+                <Picker
+                    Margin="0"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding DestinyCommunes}"
+                    SelectedItem="{Binding DestinyCommune, Mode=TwoWay}"
+                    Title="{i18n:Translate PickerCommuneDestiny}">
+                </Picker>
+                <Label 
+                    Margin="0"
+                    FontSize="Medium"
+                    HorizontalOptions="StartAndExpand"
+                    Text="{i18n:Translate LabelCoreDestiny}"
+                    VerticalOptions="CenterAndExpand">
+                </Label>
+                <Picker
+                    Margin="0"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding DestinyCores}"
+                    SelectedItem="{Binding DestinyCore, Mode=TwoWay}"
+                    Title="{i18n:Translate PickerCoreDestiny}">
+                </Picker>
+                <Button
+                    Command="{Binding GoToBusSheduleCommand}"
+                    Margin="0, 20"
+                    BorderRadius="8"
+                    Text="{i18n:Translate SearchButton}"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                    BackgroundColor="{StaticResource MainColor}"
+                    TextColor="{StaticResource FontColorLight}">
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

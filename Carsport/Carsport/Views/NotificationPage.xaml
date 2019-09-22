@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.NotificationPage"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="{i18n:Translate NotificationTitle}">
+    <ContentPage.ToolbarItems>
+        <OnPlatform x:TypeArguments="ToolbarItem">
+             <OnPlatform.iOS>
+                  <ToolbarItem Text="{i18n:Translate HomeNavBar}" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.iOS>
+             <OnPlatform.Android>
+                 <ToolbarItem Icon="icon_home" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Notification}"
+            Margin="25">
+            <SearchBar
+                BackgroundColor="Transparent"
+                HeightRequest="40"
+                Placeholder="{i18n:Translate NotificationSearchPlaceHolder}"
+                SearchCommand="{Binding SearchCommand}"
+                Text="{Binding Filter}">
+            </SearchBar>
+            <ListView
+                BackgroundColor="Transparent"
+                HasUnevenRows="True"
+                IsRefreshing="{Binding IsRefreshing}"
+                IsPullToRefreshEnabled="True"
+                ItemsSource="{Binding Notifications}"
+                RefreshCommand="{Binding RefreshCommand}"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GotoNotificationCommand}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                        Grid.Column="0"
+                                        FontSize="Default"
+                                        TextColor="Black"
+                                        Text="{Binding Title}"
+                                        VerticalOptions="Center">
+                                </Label>
+                                <Image
+                                        Grid.Column="1"
+                                        Source="ic_arrow_right_dark"
+                                        VerticalOptions="Center">
+                                </Image>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

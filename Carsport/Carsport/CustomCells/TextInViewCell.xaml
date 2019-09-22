@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.CustomCells.TextInViewCell">
+    <Grid ColumnSpacing="2" Padding="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="2"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Row="0"  Grid.Column="1" BackgroundColor="#0535f0" CornerRadius="15">
+            <Frame.HasShadow>
+                <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true"/>
+            </Frame.HasShadow>
+
+            <StackLayout>
+                <Label TextColor="White" Text="{Binding Message}" />
+            </StackLayout>
+        </Frame>
+        <Label Grid.Row="1" FontSize="Micro" Grid.Column="1" HorizontalTextAlignment="End" 
+               Text="{Binding Date, StringFormat='{}{0:HH:mm}'}" TextColor="Gray"></Label>
+    </Grid>
+</ViewCell>

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.MenuPage"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Menu"
+             BackgroundColor="{StaticResource MainColor}">
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="FillAndExpand">
+            <controls:CircleImage
+                Margin="20, 20, 20, 5"
+                Source="{Binding UserImageFullPath}"
+                Aspect="AspectFill"
+                WidthRequest="140"
+                HeightRequest="140">
+            </controls:CircleImage>
+            <Label
+                Margin="20, 0, 20, 10"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                Text="{Binding UserFullName}"
+                TextColor="White">
+            </Label>
+            <ScrollView
+                VerticalOptions="FillAndExpand">
+                <StackLayout
+                    BackgroundColor="{StaticResource BackgroundMenu}"
+                    Orientation="Vertical"
+                    VerticalOptions="FillAndExpand">
+
+                    <BoxView
+                        HeightRequest="20"
+                        HorizontalOptions="FillAndExpand"
+                        />
+
+                    <ListView
+                        Margin="20, 0, 10, 0"
+                        HeightRequest="310"
+                        VerticalOptions="Fill"
+                        ItemsSource="{Binding Menu}"
+                        SeparatorVisibility="None"
+                        HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid
+                                        Margin="20, 2, 20, 1">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding GotoCommand}"/>
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image
+                                            Grid.Column="0"
+                                            Source="{Binding Icon}"
+                                            WidthRequest="30"
+                                            HeightRequest="30">
+                                        </Image>
+                                        <Label
+                                            Grid.Column="1"
+                                            FontSize="Medium"
+                                            VerticalOptions="Center"
+                                            TextColor="{StaticResource FontColorDark}"
+                                            Text="{Binding Title}">
+                                        </Label>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <Label />
+                    <BoxView
+                        HeightRequest="2"
+                        BackgroundColor="Black"
+                        HorizontalOptions="FillAndExpand"
+                        />
+                    <Label />
+                        
+                    <ListView
+                        Margin="0, 0, 20, 0"
+                        HeightRequest="90"
+                        VerticalOptions="Fill"
+                        ItemsSource="{Binding MenuSettings}"
+                        SeparatorVisibility="None"
+                        HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid
+                                        Margin="20, 2, 20, 1">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding GotoCommand}"/>
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image
+                                            Grid.Column="0"
+                                            Source="{Binding Icon}"
+                                            WidthRequest="30"
+                                            HeightRequest="30">
+                                        </Image>
+                                        <Label
+                                            Grid.Column="1"
+                                            FontSize="Medium"
+                                            VerticalOptions="Center"
+                                            TextColor="{StaticResource FontColorDark}"
+                                            Text="{Binding Title}">
+                                        </Label>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

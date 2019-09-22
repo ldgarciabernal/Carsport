@@ -1,0 +1,86 @@
+﻿@{
+                /**/
+
+                ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Carsport</h1>
+    <p class="lead">Administration web Carsport mobile aplicaction. You can manage all the information about this mobile app.</p>
+</div>
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+<div class="row" style="margin-top:25px;margin-bottom:25px;">
+    <div class="col-sm-3" style="margin-bottom:15px">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/Content/Media/img_users.png" style="width: 18rem;">
+            <div class="card-body">
+                <h4 class="card-title">Users</h4>
+                <p class="card-text">You can manager the users information of mobil application.</p>
+                @Html.ActionLink("Go to users", "Index", "Users", new { }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3" style="margin-bottom:15px">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/Content/Media/img_routes.png" style="width: 18rem;">
+            <div class="card-body">
+                <h4 class="card-title">Routes</h4>
+                <p class="card-text">You can manager the users information of mobil application.</p>
+                @Html.ActionLink("Go to routes", "Index", "Routes", new { }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3" style="margin-bottom:15px">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/Content/Media/img_location.png" style="width: 18rem;">
+            <div class="card-body">
+                <h4 class="card-title">Cities</h4>
+                <p class="card-text">You can manager the users information of mobil application.</p>
+                @Html.ActionLink("Go to cities", "Index", "Cities", new { }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3" style="margin-bottom:15px">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/Content/Media/img_news.png" style="width: 18rem;">
+            <div class="card-body">
+                <h4 class="card-title">News</h4>
+                <p class="card-text">You can manager the users information of mobil application.</p>
+                @Html.ActionLink("Go to news", "Index", "Notifications", new { }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3" style="margin-bottom:15px">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/Content/Media/img_bycicles.png" style="width: 18rem;">
+            <div class="card-body">
+                <h4 class="card-title">Bycicles</h4>
+                <p class="card-text">You can manager the users information of mobil application.</p>
+                @Html.ActionLink("Go to bycicles", "Index", "Bycicles", new { }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3" style="margin-bottom:15px">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/Content/Media/img_stations.png" style="width: 18rem;">
+            <div class="card-body">
+                <h4 class="card-title">Stations</h4>
+                <p class="card-text">You can manager the users information of mobil application.</p>
+                @Html.ActionLink("Go to stations", "Index", "Stations", new { }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3" style="margin-bottom:15px;margin-top:11px">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/Content/Media/img_mails.png" style="width: 15.7rem;margin-bottom:10px;">
+            <div class="card-body">
+                <h4 class="card-title">Mail Template</h4>
+                <p class="card-text">You can edit the text of emails.</p>
+                @Html.ActionLink("Go to mail template", "Index", "MailTemplates", new { }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    </div>
+</div>
+}

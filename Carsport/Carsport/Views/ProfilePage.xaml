@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.ProfilePage"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Profile">
+    <ContentPage.ToolbarItems>
+        <OnPlatform x:TypeArguments="ToolbarItem">
+             <OnPlatform.iOS>
+                  <ToolbarItem Text="{i18n:Translate HomeNavBar}" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.iOS>
+             <OnPlatform.Android>
+                 <ToolbarItem Icon="icon_home" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Profile}">
+            <StackLayout
+                Margin="25, 10, 25, 10"
+                Padding="0, 15, 0, 15">
+                <controls:CircleImage
+                    Source="{Binding ImageSource}"
+                    Aspect="AspectFill"
+                    WidthRequest="160"
+                    HeightRequest="160">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
+                    </Image.GestureRecognizers>
+                </controls:CircleImage>
+                <Label
+                    FontSize="Small"
+                    HorizontalOptions="Center"
+                    Text="{i18n:Translate ChangeImage}">
+                </Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Text="{i18n:Translate RegisterFirstName}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="{Binding FirstName}"
+                        Placeholder="{i18n:Translate RegisterFirstNamePlaceholder}">
+                    </Entry>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Text="{i18n:Translate RegisterLastName}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Text="{Binding LastName}"
+                        Placeholder="{i18n:Translate RegisterLastNamePlaceholder}">
+                    </Entry>
+                    <Label
+                        Grid.ColumnSpan="2"
+                        Grid.Row="2"
+                        Text="{i18n:Translate RegisterEMail}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Label
+                        Grid.ColumnSpan="2"
+                        Grid.Row="3"
+                        FontSize="Medium"
+                        FontAttributes="Bold"
+                        Text="{Binding EMail, Mode=TwoWay}"
+                        VerticalOptions="Center">
+                    </Label>
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        Text="{i18n:Translate NewPassword}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        IsPassword="True"
+                        Text="{Binding NewPassword}"
+                        Placeholder="{i18n:Translate NewPasswordPlaceholder}">
+                    </Entry>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="5"
+                        Text="{i18n:Translate ConfirmPassword}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="5"
+                        IsPassword="True"
+                        Text="{Binding NewPasswordConfirm}"
+                        Placeholder="{i18n:Translate ConfirmPasswordPlaceholder}">
+                    </Entry>
+                </Grid>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}"
+                    VerticalOptions="CenterAndExpand">
+                </ActivityIndicator>
+                <Button
+                    BorderRadius="8" HeightRequest="46" HorizontalOptions="FillAndExpand" BackgroundColor="#0B0B3B" TextColor="White"
+                    Command="{Binding SaveCommand}"
+                    IsEnabled="{Binding IsEnabled}"
+                    Text="{i18n:Translate RegisterSave}">
+                </Button>
+                <Button
+                    BorderRadius="8" HeightRequest="46" HorizontalOptions="FillAndExpand" BackgroundColor="#FFCB3F" TextColor="White"
+                    Command="{Binding ChangePasswordCommand}"
+                    IsEnabled="{Binding IsEnabled}"
+                    Text="{i18n:Translate ChangePasswordSave}">
+                </Button>
+                <Button
+                    BorderRadius="8" HeightRequest="46" HorizontalOptions="FillAndExpand" BackgroundColor="#D04931" TextColor="White"
+                    Command="{Binding RemoveAccountCommand}"
+                    IsEnabled="{Binding IsEnabled}"
+                    Text="{i18n:Translate RemoveAccountButton}">
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

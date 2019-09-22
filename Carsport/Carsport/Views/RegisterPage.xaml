@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.RegisterPage"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             NavigationPage.HasNavigationBar="false"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Register}">
+            <StackLayout
+                Margin="25">
+                <controls:CircleImage
+                    Source="{Binding ImageSource}"
+                    Aspect="AspectFill"
+                    WidthRequest="160"
+                    HeightRequest="160">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
+                    </Image.GestureRecognizers>
+                </controls:CircleImage>
+                <Label
+                    FontSize="Small"
+                    HorizontalOptions="Center"
+                    Text="{i18n:Translate ChangeImage}">
+                </Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Text="{i18n:Translate RegisterFirstName}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="{Binding FirstName}"
+                        Placeholder="{i18n:Translate RegisterFirstNamePlaceholder}">
+                    </Entry>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Text="{i18n:Translate RegisterLastName}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Text="{Binding LastName}"
+                        Placeholder="{i18n:Translate RegisterLastNamePlaceholder}">
+                    </Entry>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        Text="{i18n:Translate RegisterEMail}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Keyboard="Email"
+                        Text="{Binding EMail}"
+                        Placeholder="{i18n:Translate RegisterEmailPlaceHolder}">
+                    </Entry>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        Text="{i18n:Translate RegisterPassword}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        IsPassword="True"
+                        Text="{Binding Password}"
+                        Placeholder="{i18n:Translate RegisterPasswordPlaceHolder}">
+                    </Entry>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        Text="{i18n:Translate RegisterPasswordConfirm}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Entry
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        IsPassword="True"
+                        Text="{Binding PasswordConfirm}"
+                        Placeholder="{i18n:Translate RegisterPasswordConfirmPlaceHolder}">
+                    </Entry>
+                </Grid>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}"
+                    VerticalOptions="CenterAndExpand">
+                </ActivityIndicator>
+                <Button
+                    BackgroundColor="#3285C8" TextColor="White" FontSize="12" BorderRadius="8" 
+                    Command="{Binding SaveCommand}"
+                    HeightRequest="36"
+                    IsEnabled="{Binding IsEnabled}"
+                    Text="{i18n:Translate RegisterSave}">
+                </Button>
+                <Button Margin="0, 10, 0, 25" Text="Volver" HeightRequest="36" BackgroundColor="#BA3239" TextColor="White" FontSize="12" BorderRadius="8" Command="{Binding GoToLoginCommand}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

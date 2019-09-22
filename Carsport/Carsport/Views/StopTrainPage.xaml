@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="Carsport.Views.StopTrainPage"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="{i18n:Translate StationTittle}">
+    <ContentPage.ToolbarItems>
+        <OnPlatform x:TypeArguments="ToolbarItem">
+             <OnPlatform.iOS>
+                  <ToolbarItem Text="{i18n:Translate HomeNavBar}" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.iOS>
+             <OnPlatform.Android>
+                 <ToolbarItem Icon="icon_home" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding StopTrain}">
+            <StackLayout
+                Margin="25">
+                <Picker
+                    x:Name="pickerLines"
+                    Margin="0"
+                    ItemsSource="{Binding LineStop}"
+                    SelectedItem="{Binding CurrentStop, Mode=TwoWay}"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                    Title="{i18n:Translate PickerLines}">
+                </Picker>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}">
+                </ActivityIndicator>
+                <maps:Map
+                    x:Name="StopsMap"
+                    HorizontalOptions="FillAndExpand"
+                    IsShowingUser="true"
+                    MapType="Street"
+                    VerticalOptions="FillAndExpand">
+                </maps:Map>
+                <Slider
+                    x:Name="SliderMap"
+                    Value="0.8"
+                    ValueChanged="Handle_ValueChanged"
+                    BackgroundColor="{StaticResource MainColor}">
+                </Slider>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.RoutesPage"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="{i18n:Translate RoutesTitle}">
+             
+    <!-- Solo en Ios
+    <ContentPage.ToolbarItems>
+        <OnPlatform x:TypeArguments="ToolbarItem">
+             <OnPlatform.iOS>
+                  <ToolbarItem Text="{i18n:Translate AddNavBar}" Command="{Binding AddRouteCommand}"/>
+             </OnPlatform.iOS>
+             <OnPlatform.Android>
+                 <ToolbarItem Icon="icon_add" Command="{Binding AddRouteCommand}"/>
+             </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.ToolbarItems>
+    -->
+    
+    <!-- Para Android -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="icon_add" Command="{Binding AddRouteCommand}"/>
+        <ToolbarItem Icon="icon_home" Command="{Binding GoToDashBoardCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+   
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Routes}"
+            Margin="15">
+            <SearchBar
+                BackgroundColor="Transparent"
+                HeightRequest="40"
+                Placeholder="{i18n:Translate SearchRoute}"
+                SearchCommand="{Binding SearchCommand}"
+                Text="{Binding Filter}">
+            </SearchBar>
+            <ListView
+                HasUnevenRows="True"
+                IsRefreshing="{Binding IsRefreshing}"
+                IsPullToRefreshEnabled="True"
+                ItemsSource="{Binding Routes}"
+                RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding RouteDetailsCommand}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Orientation="Vertical" Margin="10,10" HorizontalOptions="Start" VerticalOptions="Start" Grid.Column="0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Origen: " FontSize="16" TextColor="#1C1C1C"/>
+                                        <Label Text="{Binding Origin.Name}" FontSize="16" TextColor="Black"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Destino: " FontSize="16" TextColor="#1C1C1C"/>
+                                        <Label Text="{Binding Destiny.Name}" FontSize="16" TextColor="Black"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Fecha: " FontSize="16" TextColor="#1C1C1C"/>
+                                        <Label Text="{Binding Date, StringFormat='{}{0:dd-MM-yyyy HH:mm}'}" FontSize="16" TextColor="Black"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Plazas: " FontSize="16" TextColor="#1C1C1C"/>
+                                        <Label Text="{Binding NumSeats}" FontSize="16" TextColor="Black"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <Image
+                                    Grid.Column="2"
+                                    Source="ic_arrow_right_dark"
+                                    VerticalOptions="Center">
+                                </Image>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.TrainPage"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="{i18n:Translate TrainTitle}">
+    <ContentPage.ToolbarItems>
+        <OnPlatform x:TypeArguments="ToolbarItem">
+             <OnPlatform.iOS>
+                  <ToolbarItem Text="{i18n:Translate HomeNavBar}" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.iOS>
+             <OnPlatform.Android>
+                 <ToolbarItem Icon="icon_home" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView
+             BindingContext="{Binding Train}">
+            <StackLayout
+                Margin="25">
+                <Label
+                    Margin="0"
+                    FontSize="Medium"
+                    HorizontalOptions="StartAndExpand"
+                    Text="{i18n:Translate LabelStationOrigin}"
+                    VerticalOptions="Start">
+                </Label>
+                <Picker
+                    Margin="0"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding OriginStations}"
+                    SelectedItem="{Binding OriginStation, Mode=TwoWay}"
+                    Title="{i18n:Translate LabelStationPickerOrigin}">
+                </Picker>
+                <Label 
+                    Margin="0, 15, 0, 0"
+                    FontSize="Medium"
+                    HorizontalOptions="StartAndExpand"
+                    Text="{i18n:Translate LabelStationDestiny}"
+                    VerticalOptions="Start">
+                </Label>
+                <Picker
+                    Margin="0"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding DestinyStations}"
+                    SelectedItem="{Binding DestinyStation, Mode=TwoWay}"
+                    Title="{i18n:Translate LabelStationPickerDestiny }">
+                </Picker>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}">
+                </ActivityIndicator>
+                <Button
+                    Command="{Binding GoToTrainSheduleCommand}"
+                    Margin="0, 20"
+                    BorderRadius="8"
+                    Text="{i18n:Translate SearchButton}"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                    BackgroundColor="{StaticResource MainColor}"
+                    TextColor="{StaticResource FontColorLight}"
+                    VerticalOptions="EndAndExpand">
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

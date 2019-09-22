@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.NewsPage"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="{i18n:Translate NotificationTitle}">
+    <ContentPage.ToolbarItems>
+        <OnPlatform x:TypeArguments="ToolbarItem">
+             <OnPlatform.iOS>
+                  <ToolbarItem Text="{i18n:Translate HomeNavBar}" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.iOS>
+             <OnPlatform.Android>
+                 <ToolbarItem Icon="icon_home" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding News}">
+            <StackLayout
+                Margin="25">
+                <Label
+                    Text="{Binding Notification.Title}"
+                    FontSize="Medium"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    VerticalOptions="StartAndExpand">
+                </Label>
+                <Label
+                    Text="{Binding Notification.Body}"
+                    FontSize="Default"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    VerticalOptions="StartAndExpand">
+                </Label>
+                <Image
+                    Source="{Binding Notification.ImageFullPath}"
+                    VerticalOptions="CenterAndExpand">
+                </Image>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

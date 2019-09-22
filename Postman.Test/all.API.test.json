@@ -1,0 +1,806 @@
+{
+	"info": {
+		"_postman_id": "eb1729e5-2b08-4b3f-bb36-270d22235b35",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Routes",
+			"item": [
+				{
+					"name": "http://movilidaducaapi.somee.com/api/Routes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85dfe1c3-aacf-4baf-a86a-a80792a1ac08",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response have body\", function () {",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Check if return more than one route\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('array')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer Fhy2XEJfaSa1iMk5p7dZlnmvS9Cy2Ao2NN2pci6oZE1udkGmq2kBEY2IBpHbGAy3wuJUDUvAmwdQUSRk4fTMnLZmr7dh6no62--jshfYDk9SnK0qEyPT-ZeJGP6wDbihKFDLx2djBT5MlVs7iK4dMksKPBM9XvLAfa5CG9LnbNRkeY2yH4vBnwcyTsUIGgB2UgCSvPeJurIX7ad2fXCzckpzouMwaKLnRK4Gp0zGBDocnye87qs0geSxli5Fg9uWit7sRA-pgmTVa0pvnCm_Y4WenbHKlrOdl26YaL7qIuEQeGpGGFQb9q3DrF3NBu0z1AUN1PAK2g86L_KgbRIWaJQtiUlEsD0VEDP4Cs8jv5YpEz5rmGdiO-PrWa0wVrkBWCQTTOHlvtASipBaaM-mr0bQCGT8Ay-Xv95o-oORIOuVjuPxY9RNsQvYsvZ6CszXqlUXZo8i6qavsLBsI_B6njFNxB1FRvLfuCv2Ra3ZssPvOw3UraaIRfL_0iVXlp98gJk6Eamrra9BeAWpPzDWyhBMljgyW0Souv5tEvUjHvyjf3EfXM7DNfB1h60LISY0Ai1knk7sH6ucmiA4fGllrVlf62H12FjwNkGB3D4djSl5XuKe8hnh-0Hi-z0T__SD",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://movilidaducaapi.somee.com/api/Routes",
+							"protocol": "http",
+							"host": [
+								"movilidaducaapi",
+								"somee",
+								"com"
+							],
+							"path": [
+								"api",
+								"Routes"
+							]
+						},
+						"description": "Get routes"
+					},
+					"response": []
+				},
+				{
+					"name": "http://movilidaducaapi.somee.com/api/Routes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "63ba8725-40e3-4033-ae90-a98a47ed7537",
+								"exec": [
+									"pm.test(\"Create route successfully\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check origin\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.OriginID).to.eql(\"12\");",
+									"});",
+									"",
+									"pm.test(\"Check destiny\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.DestinyID).to.eql(\"2\");",
+									"});",
+									"",
+									"pm.test(\"Check Isdelete\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.IsDeleted).to.eql(\"false\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Check number of seats\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.NumSeats).to.eql(\"3\");",
+									"});",
+									"",
+									"pm.test(\"Check number of userid\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.UserId).to.eql(\"fb5d0faa-8ef7-417c-ab63-c4b06c7c10ef\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer Fhy2XEJfaSa1iMk5p7dZlnmvS9Cy2Ao2NN2pci6oZE1udkGmq2kBEY2IBpHbGAy3wuJUDUvAmwdQUSRk4fTMnLZmr7dh6no62--jshfYDk9SnK0qEyPT-ZeJGP6wDbihKFDLx2djBT5MlVs7iK4dMksKPBM9XvLAfa5CG9LnbNRkeY2yH4vBnwcyTsUIGgB2UgCSvPeJurIX7ad2fXCzckpzouMwaKLnRK4Gp0zGBDocnye87qs0geSxli5Fg9uWit7sRA-pgmTVa0pvnCm_Y4WenbHKlrOdl26YaL7qIuEQeGpGGFQb9q3DrF3NBu0z1AUN1PAK2g86L_KgbRIWaJQtiUlEsD0VEDP4Cs8jv5YpEz5rmGdiO-PrWa0wVrkBWCQTTOHlvtASipBaaM-mr0bQCGT8Ay-Xv95o-oORIOuVjuPxY9RNsQvYsvZ6CszXqlUXZo8i6qavsLBsI_B6njFNxB1FRvLfuCv2Ra3ZssPvOw3UraaIRfL_0iVXlp98gJk6Eamrra9BeAWpPzDWyhBMljgyW0Souv5tEvUjHvyjf3EfXM7DNfB1h60LISY0Ai1knk7sH6ucmiA4fGllrVlf62H12FjwNkGB3D4djSl5XuKe8hnh-0Hi-z0T__SD",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"OriginID\": 12,\n    \"DestinyID\": 2,\n    \"Description\": null,\n    \"NumSeats\": \"3\",\n    \"Date\": \"2019-05-30T12:00:00\",\n    \"IsDeleted\": false,\n    \"UserId\": \"fb5d0faa-8ef7-417c-ab63-c4b06c7c10ef\"\n}"
+						},
+						"url": {
+							"raw": "http://movilidaducaapi.somee.com/api/Routes",
+							"protocol": "http",
+							"host": [
+								"movilidaducaapi",
+								"somee",
+								"com"
+							],
+							"path": [
+								"api",
+								"Routes"
+							]
+						},
+						"description": "Create route"
+					},
+					"response": []
+				},
+				{
+					"name": "http://movilidaducaapi.somee.com/api/Routes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "63ba8725-40e3-4033-ae90-a98a47ed7537",
+								"exec": [
+									"pm.test(\"Update route successfully\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer Fhy2XEJfaSa1iMk5p7dZlnmvS9Cy2Ao2NN2pci6oZE1udkGmq2kBEY2IBpHbGAy3wuJUDUvAmwdQUSRk4fTMnLZmr7dh6no62--jshfYDk9SnK0qEyPT-ZeJGP6wDbihKFDLx2djBT5MlVs7iK4dMksKPBM9XvLAfa5CG9LnbNRkeY2yH4vBnwcyTsUIGgB2UgCSvPeJurIX7ad2fXCzckpzouMwaKLnRK4Gp0zGBDocnye87qs0geSxli5Fg9uWit7sRA-pgmTVa0pvnCm_Y4WenbHKlrOdl26YaL7qIuEQeGpGGFQb9q3DrF3NBu0z1AUN1PAK2g86L_KgbRIWaJQtiUlEsD0VEDP4Cs8jv5YpEz5rmGdiO-PrWa0wVrkBWCQTTOHlvtASipBaaM-mr0bQCGT8Ay-Xv95o-oORIOuVjuPxY9RNsQvYsvZ6CszXqlUXZo8i6qavsLBsI_B6njFNxB1FRvLfuCv2Ra3ZssPvOw3UraaIRfL_0iVXlp98gJk6Eamrra9BeAWpPzDWyhBMljgyW0Souv5tEvUjHvyjf3EfXM7DNfB1h60LISY0Ai1knk7sH6ucmiA4fGllrVlf62H12FjwNkGB3D4djSl5XuKe8hnh-0Hi-z0T__SD",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"RouteId\": 27,\n  \"OriginID\": 2,\n  \"DestinyID\": 3,\n  \"Description\": \"sample string 4\",\n  \"NumSeats\": \"3\",\n  \"Date\": \"2019-06-27T00:09:45.5326672-07:00\",\n  \"IsDeleted\": true,\n  \"UserId\": \"sample string 8\"\n}"
+						},
+						"url": {
+							"raw": "http://movilidaducaapi.somee.com/api/Routes/27",
+							"protocol": "http",
+							"host": [
+								"movilidaducaapi",
+								"somee",
+								"com"
+							],
+							"path": [
+								"api",
+								"Routes",
+								"27"
+							]
+						},
+						"description": "Update route"
+					},
+					"response": []
+				},
+				{
+					"name": "http://movilidaducaapi.somee.com/api/Routes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "63ba8725-40e3-4033-ae90-a98a47ed7537",
+								"exec": [
+									"pm.test(\"Remove route successfully\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Route deleted\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.RouteId).to.eql(29);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer Fhy2XEJfaSa1iMk5p7dZlnmvS9Cy2Ao2NN2pci6oZE1udkGmq2kBEY2IBpHbGAy3wuJUDUvAmwdQUSRk4fTMnLZmr7dh6no62--jshfYDk9SnK0qEyPT-ZeJGP6wDbihKFDLx2djBT5MlVs7iK4dMksKPBM9XvLAfa5CG9LnbNRkeY2yH4vBnwcyTsUIGgB2UgCSvPeJurIX7ad2fXCzckpzouMwaKLnRK4Gp0zGBDocnye87qs0geSxli5Fg9uWit7sRA-pgmTVa0pvnCm_Y4WenbHKlrOdl26YaL7qIuEQeGpGGFQb9q3DrF3NBu0z1AUN1PAK2g86L_KgbRIWaJQtiUlEsD0VEDP4Cs8jv5YpEz5rmGdiO-PrWa0wVrkBWCQTTOHlvtASipBaaM-mr0bQCGT8Ay-Xv95o-oORIOuVjuPxY9RNsQvYsvZ6CszXqlUXZo8i6qavsLBsI_B6njFNxB1FRvLfuCv2Ra3ZssPvOw3UraaIRfL_0iVXlp98gJk6Eamrra9BeAWpPzDWyhBMljgyW0Souv5tEvUjHvyjf3EfXM7DNfB1h60LISY0Ai1knk7sH6ucmiA4fGllrVlf62H12FjwNkGB3D4djSl5XuKe8hnh-0Hi-z0T__SD",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"RouteId\": 27,\n  \"OriginID\": 2,\n  \"DestinyID\": 3,\n  \"Description\": \"sample string 4\",\n  \"NumSeats\": \"3\",\n  \"Date\": \"2019-06-27T00:09:45.5326672-07:00\",\n  \"IsDeleted\": true,\n  \"UserId\": \"sample string 8\"\n}"
+						},
+						"url": {
+							"raw": "http://movilidaducaapi.somee.com/api/Routes/29",
+							"protocol": "http",
+							"host": [
+								"movilidaducaapi",
+								"somee",
+								"com"
+							],
+							"path": [
+								"api",
+								"Routes",
+								"29"
+							]
+						},
+						"description": "Delete route"
+					},
+					"response": []
+				},
+				{
+					"name": "http://movilidaducaapi.somee.com/api/Routes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85dfe1c3-aacf-4baf-a86a-a80792a1ac08",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response have body\", function () {",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Check if return route selected\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.RouteId).to.eql(24)",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer Fhy2XEJfaSa1iMk5p7dZlnmvS9Cy2Ao2NN2pci6oZE1udkGmq2kBEY2IBpHbGAy3wuJUDUvAmwdQUSRk4fTMnLZmr7dh6no62--jshfYDk9SnK0qEyPT-ZeJGP6wDbihKFDLx2djBT5MlVs7iK4dMksKPBM9XvLAfa5CG9LnbNRkeY2yH4vBnwcyTsUIGgB2UgCSvPeJurIX7ad2fXCzckpzouMwaKLnRK4Gp0zGBDocnye87qs0geSxli5Fg9uWit7sRA-pgmTVa0pvnCm_Y4WenbHKlrOdl26YaL7qIuEQeGpGGFQb9q3DrF3NBu0z1AUN1PAK2g86L_KgbRIWaJQtiUlEsD0VEDP4Cs8jv5YpEz5rmGdiO-PrWa0wVrkBWCQTTOHlvtASipBaaM-mr0bQCGT8Ay-Xv95o-oORIOuVjuPxY9RNsQvYsvZ6CszXqlUXZo8i6qavsLBsI_B6njFNxB1FRvLfuCv2Ra3ZssPvOw3UraaIRfL_0iVXlp98gJk6Eamrra9BeAWpPzDWyhBMljgyW0Souv5tEvUjHvyjf3EfXM7DNfB1h60LISY0Ai1knk7sH6ucmiA4fGllrVlf62H12FjwNkGB3D4djSl5XuKe8hnh-0Hi-z0T__SD",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://movilidaducaapi.somee.com/api/Routes/24",
+							"protocol": "http",
+							"host": [
+								"movilidaducaapi",
+								"somee",
+								"com"
+							],
+							"path": [
+								"api",
+								"Routes",
+								"24"
+							]
+						},
+						"description": "Get one route"
+					},
+					"response": []
+				}
+			],
+			"description": "All routes http calls test"
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "http://movilidaducaapi.somee.com/api/Notifications",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85dfe1c3-aacf-4baf-a86a-a80792a1ac08",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response have body\", function () {",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Check if return more than one news\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('array')",
+									"});",
+									"",
+									"pm.test(\"Check if return more than one news\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].IsAvailable).to.eql(true)",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer Fhy2XEJfaSa1iMk5p7dZlnmvS9Cy2Ao2NN2pci6oZE1udkGmq2kBEY2IBpHbGAy3wuJUDUvAmwdQUSRk4fTMnLZmr7dh6no62--jshfYDk9SnK0qEyPT-ZeJGP6wDbihKFDLx2djBT5MlVs7iK4dMksKPBM9XvLAfa5CG9LnbNRkeY2yH4vBnwcyTsUIGgB2UgCSvPeJurIX7ad2fXCzckpzouMwaKLnRK4Gp0zGBDocnye87qs0geSxli5Fg9uWit7sRA-pgmTVa0pvnCm_Y4WenbHKlrOdl26YaL7qIuEQeGpGGFQb9q3DrF3NBu0z1AUN1PAK2g86L_KgbRIWaJQtiUlEsD0VEDP4Cs8jv5YpEz5rmGdiO-PrWa0wVrkBWCQTTOHlvtASipBaaM-mr0bQCGT8Ay-Xv95o-oORIOuVjuPxY9RNsQvYsvZ6CszXqlUXZo8i6qavsLBsI_B6njFNxB1FRvLfuCv2Ra3ZssPvOw3UraaIRfL_0iVXlp98gJk6Eamrra9BeAWpPzDWyhBMljgyW0Souv5tEvUjHvyjf3EfXM7DNfB1h60LISY0Ai1knk7sH6ucmiA4fGllrVlf62H12FjwNkGB3D4djSl5XuKe8hnh-0Hi-z0T__SD",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://movilidaducaapi.somee.com/api/Notifications",
+							"protocol": "http",
+							"host": [
+								"movilidaducaapi",
+								"somee",
+								"com"
+							],
+							"path": [
+								"api",
+								"Notifications"
+							]
+						},
+						"description": "Get all notification actives"
+					},
+					"response": []
+				},
+				{
+					"name": "http://movilidaducaapi.somee.com/api/Notifications/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85dfe1c3-aacf-4baf-a86a-a80792a1ac08",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response have body\", function () {",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Check if return news selected\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.RouteId).to.eql(1)",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer Fhy2XEJfaSa1iMk5p7dZlnmvS9Cy2Ao2NN2pci6oZE1udkGmq2kBEY2IBpHbGAy3wuJUDUvAmwdQUSRk4fTMnLZmr7dh6no62--jshfYDk9SnK0qEyPT-ZeJGP6wDbihKFDLx2djBT5MlVs7iK4dMksKPBM9XvLAfa5CG9LnbNRkeY2yH4vBnwcyTsUIGgB2UgCSvPeJurIX7ad2fXCzckpzouMwaKLnRK4Gp0zGBDocnye87qs0geSxli5Fg9uWit7sRA-pgmTVa0pvnCm_Y4WenbHKlrOdl26YaL7qIuEQeGpGGFQb9q3DrF3NBu0z1AUN1PAK2g86L_KgbRIWaJQtiUlEsD0VEDP4Cs8jv5YpEz5rmGdiO-PrWa0wVrkBWCQTTOHlvtASipBaaM-mr0bQCGT8Ay-Xv95o-oORIOuVjuPxY9RNsQvYsvZ6CszXqlUXZo8i6qavsLBsI_B6njFNxB1FRvLfuCv2Ra3ZssPvOw3UraaIRfL_0iVXlp98gJk6Eamrra9BeAWpPzDWyhBMljgyW0Souv5tEvUjHvyjf3EfXM7DNfB1h60LISY0Ai1knk7sH6ucmiA4fGllrVlf62H12FjwNkGB3D4djSl5XuKe8hnh-0Hi-z0T__SD",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://movilidaducaapi.somee.com/api/Notifications/1",
+							"protocol": "http",
+							"host": [
+								"movilidaducaapi",
+								"somee",
+								"com"
+							],
+							"path": [
+								"api",
+								"Notifications",
+								"1"
+							]
+						},
+						"description": "get one news"
+					},
+					"response": []
+				}
+			],
+			"description": "All notification api calls\n"
+		},
+		{
+			"name": "Bike zone",
+			"item": [
+				{
+					"name": "http://movilidaducaapi.somee.com/api/Bycicles",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85dfe1c3-aacf-4baf-a86a-a80792a1ac08",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response have body\", function () {",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Check if return more than one news\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('array')",
+									"});",
+									"",
+									"pm.test(\"Check if return more than one news\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].IsAvailable).to.eql(true)",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer Fhy2XEJfaSa1iMk5p7dZlnmvS9Cy2Ao2NN2pci6oZE1udkGmq2kBEY2IBpHbGAy3wuJUDUvAmwdQUSRk4fTMnLZmr7dh6no62--jshfYDk9SnK0qEyPT-ZeJGP6wDbihKFDLx2djBT5MlVs7iK4dMksKPBM9XvLAfa5CG9LnbNRkeY2yH4vBnwcyTsUIGgB2UgCSvPeJurIX7ad2fXCzckpzouMwaKLnRK4Gp0zGBDocnye87qs0geSxli5Fg9uWit7sRA-pgmTVa0pvnCm_Y4WenbHKlrOdl26YaL7qIuEQeGpGGFQb9q3DrF3NBu0z1AUN1PAK2g86L_KgbRIWaJQtiUlEsD0VEDP4Cs8jv5YpEz5rmGdiO-PrWa0wVrkBWCQTTOHlvtASipBaaM-mr0bQCGT8Ay-Xv95o-oORIOuVjuPxY9RNsQvYsvZ6CszXqlUXZo8i6qavsLBsI_B6njFNxB1FRvLfuCv2Ra3ZssPvOw3UraaIRfL_0iVXlp98gJk6Eamrra9BeAWpPzDWyhBMljgyW0Souv5tEvUjHvyjf3EfXM7DNfB1h60LISY0Ai1knk7sH6ucmiA4fGllrVlf62H12FjwNkGB3D4djSl5XuKe8hnh-0Hi-z0T__SD",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://movilidaducaapi.somee.com/api/Bycicles",
+							"protocol": "http",
+							"host": [
+								"movilidaducaapi",
+								"somee",
+								"com"
+							],
+							"path": [
+								"api",
+								"Bycicles"
+							]
+						},
+						"description": "Get all notification actives"
+					},
+					"response": []
+				},
+				{
+					"name": "http://movilidaducaapi.somee.com/api/Bycicles/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85dfe1c3-aacf-4baf-a86a-a80792a1ac08",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response have body\", function () {",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Check if return news selected\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.RouteId).to.eql(1)",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer Fhy2XEJfaSa1iMk5p7dZlnmvS9Cy2Ao2NN2pci6oZE1udkGmq2kBEY2IBpHbGAy3wuJUDUvAmwdQUSRk4fTMnLZmr7dh6no62--jshfYDk9SnK0qEyPT-ZeJGP6wDbihKFDLx2djBT5MlVs7iK4dMksKPBM9XvLAfa5CG9LnbNRkeY2yH4vBnwcyTsUIGgB2UgCSvPeJurIX7ad2fXCzckpzouMwaKLnRK4Gp0zGBDocnye87qs0geSxli5Fg9uWit7sRA-pgmTVa0pvnCm_Y4WenbHKlrOdl26YaL7qIuEQeGpGGFQb9q3DrF3NBu0z1AUN1PAK2g86L_KgbRIWaJQtiUlEsD0VEDP4Cs8jv5YpEz5rmGdiO-PrWa0wVrkBWCQTTOHlvtASipBaaM-mr0bQCGT8Ay-Xv95o-oORIOuVjuPxY9RNsQvYsvZ6CszXqlUXZo8i6qavsLBsI_B6njFNxB1FRvLfuCv2Ra3ZssPvOw3UraaIRfL_0iVXlp98gJk6Eamrra9BeAWpPzDWyhBMljgyW0Souv5tEvUjHvyjf3EfXM7DNfB1h60LISY0Ai1knk7sH6ucmiA4fGllrVlf62H12FjwNkGB3D4djSl5XuKe8hnh-0Hi-z0T__SD",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://movilidaducaapi.somee.com/api/Bycicles/1",
+							"protocol": "http",
+							"host": [
+								"movilidaducaapi",
+								"somee",
+								"com"
+							],
+							"path": [
+								"api",
+								"Bycicles",
+								"1"
+							]
+						},
+						"description": "get one news"
+					},
+					"response": []
+				}
+			],
+			"description": "All notification api calls\n"
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "http://movilidaducaapi.somee.com/Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "994578a9-f644-43a7-800e-9a10214e6e10",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Correct user name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.userName).to.eql(\"al@uca.es\");",
+									"});",
+									"",
+									"pm.test(\"Correct authorization method\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.token_type).to.eql(\"bearer\");",
+									"});",
+									"",
+									"pm.test(\"Token exists\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property(\"access_token\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "al@uca.es",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Password#1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://movilidaducaapi.somee.com/Token",
+							"protocol": "http",
+							"host": [
+								"movilidaducaapi",
+								"somee",
+								"com"
+							],
+							"path": [
+								"Token"
+							]
+						},
+						"description": "Login"
+					},
+					"response": []
+				},
+				{
+					"name": "http://movilidaducaapi.somee.com/GetUserByID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "994578a9-f644-43a7-800e-9a10214e6e10",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Correct user name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.userName).to.eql(\"al@uca.es\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer Fhy2XEJfaSa1iMk5p7dZlnmvS9Cy2Ao2NN2pci6oZE1udkGmq2kBEY2IBpHbGAy3wuJUDUvAmwdQUSRk4fTMnLZmr7dh6no62--jshfYDk9SnK0qEyPT-ZeJGP6wDbihKFDLx2djBT5MlVs7iK4dMksKPBM9XvLAfa5CG9LnbNRkeY2yH4vBnwcyTsUIGgB2UgCSvPeJurIX7ad2fXCzckpzouMwaKLnRK4Gp0zGBDocnye87qs0geSxli5Fg9uWit7sRA-pgmTVa0pvnCm_Y4WenbHKlrOdl26YaL7qIuEQeGpGGFQb9q3DrF3NBu0z1AUN1PAK2g86L_KgbRIWaJQtiUlEsD0VEDP4Cs8jv5YpEz5rmGdiO-PrWa0wVrkBWCQTTOHlvtASipBaaM-mr0bQCGT8Ay-Xv95o-oORIOuVjuPxY9RNsQvYsvZ6CszXqlUXZo8i6qavsLBsI_B6njFNxB1FRvLfuCv2Ra3ZssPvOw3UraaIRfL_0iVXlp98gJk6Eamrra9BeAWpPzDWyhBMljgyW0Souv5tEvUjHvyjf3EfXM7DNfB1h60LISY0Ai1knk7sH6ucmiA4fGllrVlf62H12FjwNkGB3D4djSl5XuKe8hnh-0Hi-z0T__SD",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\" : \"fb5d0faa-8ef7-417c-ab63-c4b06c7c10ef\"\n}"
+						},
+						"url": {
+							"raw": "http://movilidaducaapi.somee.com/api/Users/GetUserById",
+							"protocol": "http",
+							"host": [
+								"movilidaducaapi",
+								"somee",
+								"com"
+							],
+							"path": [
+								"api",
+								"Users",
+								"GetUserById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://movilidaducaapi.somee.com/Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "994578a9-f644-43a7-800e-9a10214e6e10",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Correct user name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.userName).to.eql(\"al@uca.es\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer Fhy2XEJfaSa1iMk5p7dZlnmvS9Cy2Ao2NN2pci6oZE1udkGmq2kBEY2IBpHbGAy3wuJUDUvAmwdQUSRk4fTMnLZmr7dh6no62--jshfYDk9SnK0qEyPT-ZeJGP6wDbihKFDLx2djBT5MlVs7iK4dMksKPBM9XvLAfa5CG9LnbNRkeY2yH4vBnwcyTsUIGgB2UgCSvPeJurIX7ad2fXCzckpzouMwaKLnRK4Gp0zGBDocnye87qs0geSxli5Fg9uWit7sRA-pgmTVa0pvnCm_Y4WenbHKlrOdl26YaL7qIuEQeGpGGFQb9q3DrF3NBu0z1AUN1PAK2g86L_KgbRIWaJQtiUlEsD0VEDP4Cs8jv5YpEz5rmGdiO-PrWa0wVrkBWCQTTOHlvtASipBaaM-mr0bQCGT8Ay-Xv95o-oORIOuVjuPxY9RNsQvYsvZ6CszXqlUXZo8i6qavsLBsI_B6njFNxB1FRvLfuCv2Ra3ZssPvOw3UraaIRfL_0iVXlp98gJk6Eamrra9BeAWpPzDWyhBMljgyW0Souv5tEvUjHvyjf3EfXM7DNfB1h60LISY0Ai1knk7sH6ucmiA4fGllrVlf62H12FjwNkGB3D4djSl5XuKe8hnh-0Hi-z0T__SD",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\" : \"fb5d0faa-8ef7-417c-ab63-c4b06c7c10ef\"\n}"
+						},
+						"url": {
+							"raw": "http://movilidaducaapi.somee.com/api/Users/GetUserById",
+							"protocol": "http",
+							"host": [
+								"movilidaducaapi",
+								"somee",
+								"com"
+							],
+							"path": [
+								"api",
+								"Users",
+								"GetUserById"
+							]
+						},
+						"description": "create user"
+					},
+					"response": []
+				},
+				{
+					"name": "http://movilidaducaapi.somee.com/Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "994578a9-f644-43a7-800e-9a10214e6e10",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Correct user name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.userName).to.eql(\"al@uca.es\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer Fhy2XEJfaSa1iMk5p7dZlnmvS9Cy2Ao2NN2pci6oZE1udkGmq2kBEY2IBpHbGAy3wuJUDUvAmwdQUSRk4fTMnLZmr7dh6no62--jshfYDk9SnK0qEyPT-ZeJGP6wDbihKFDLx2djBT5MlVs7iK4dMksKPBM9XvLAfa5CG9LnbNRkeY2yH4vBnwcyTsUIGgB2UgCSvPeJurIX7ad2fXCzckpzouMwaKLnRK4Gp0zGBDocnye87qs0geSxli5Fg9uWit7sRA-pgmTVa0pvnCm_Y4WenbHKlrOdl26YaL7qIuEQeGpGGFQb9q3DrF3NBu0z1AUN1PAK2g86L_KgbRIWaJQtiUlEsD0VEDP4Cs8jv5YpEz5rmGdiO-PrWa0wVrkBWCQTTOHlvtASipBaaM-mr0bQCGT8Ay-Xv95o-oORIOuVjuPxY9RNsQvYsvZ6CszXqlUXZo8i6qavsLBsI_B6njFNxB1FRvLfuCv2Ra3ZssPvOw3UraaIRfL_0iVXlp98gJk6Eamrra9BeAWpPzDWyhBMljgyW0Souv5tEvUjHvyjf3EfXM7DNfB1h60LISY0Ai1knk7sH6ucmiA4fGllrVlf62H12FjwNkGB3D4djSl5XuKe8hnh-0Hi-z0T__SD",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\" : \"fb5d0faa-8ef7-417c-ab63-c4b06c7c10ef\"\n}"
+						},
+						"url": {
+							"raw": "http://movilidaducaapi.somee.com/api/Users/GetUserById",
+							"protocol": "http",
+							"host": [
+								"movilidaducaapi",
+								"somee",
+								"com"
+							],
+							"path": [
+								"api",
+								"Users",
+								"GetUserById"
+							]
+						},
+						"description": "edit user profile"
+					},
+					"response": []
+				}
+			],
+			"description": "All test abaut users"
+		}
+	]
+}

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Carsport.Common.Models.Bycicle>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Bycicles</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { }, new { @class = "btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.University)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAvailable)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.University)
+        </td>
+        <td>
+            @if (!string.IsNullOrEmpty(item.ImagePath))
+            {
+                <img src="@Url.Content(item.ImagePath)" alt="Image" style="width:100px;height:150px;max-width: 100%; height: auto;" />
+            } else
+            {
+                <img src="@Url.Content("/Content/Media/noimage.png")" alt="Image" style="width:100px;height:150px;max-width: 100%; height: auto;" />
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Longitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAvailable)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.BycicleId }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Details", "Details", new { id = item.BycicleId }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.BycicleId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

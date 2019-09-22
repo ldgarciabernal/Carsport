@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.DashBoardPage"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="{StaticResource BackgroundColorLight}"
+             Title="{i18n:Translate DashBoardTitle}">
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding DashBoard}"
+            BackgroundColor="Transparent">
+            <StackLayout
+                Margin="50">
+                <Button
+                    BackgroundColor="{StaticResource MainColor}"
+                    Command="{Binding GoToCarCommand}"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    Image="icon_car"
+                    BorderRadius="6"
+                    Margin="0, 10"
+                    Text="{i18n:Translate CarButton}"
+                    TextColor="{StaticResource FontColorLight}"
+                    VerticalOptions="FillAndExpand"
+                    WidthRequest="180">
+                </Button>
+
+                <Button
+                    BackgroundColor="{StaticResource MainColor}"
+                    Command="{Binding GoToBusCommand}"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    Image="icon_bus"
+                    BorderRadius="6"
+                    Margin="0, 10"
+                    Text="{i18n:Translate BusButton}"
+                    TextColor="{StaticResource FontColorLight}"
+                    VerticalOptions="FillAndExpand"
+                    WidthRequest="180">
+                </Button>
+
+                <Button
+                    BackgroundColor="{StaticResource MainColor}"
+                    Command="{Binding GoToTrainCommand}"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    Image="icon_train"
+                    BorderRadius="6"
+                    Margin="0, 10"
+                    Text="{i18n:Translate TrainButton}"
+                    TextColor="{StaticResource FontColorLight}"
+                    VerticalOptions="FillAndExpand"
+                    WidthRequest="180">
+                </Button>
+
+                <Button
+                    BackgroundColor="{StaticResource MainColor}"
+                    Command="{Binding GoToBikeCommand}"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    Image="icon_bike"
+                    BorderRadius="6"
+                    Margin="0, 10"
+                    Text="{i18n:Translate BikeButton}"
+                    TextColor="{StaticResource FontColorLight}"
+                    VerticalOptions="FillAndExpand"
+                    WidthRequest="180">
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

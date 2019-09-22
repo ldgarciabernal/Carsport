@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.ConfigurationPage"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="{i18n:Translate ConfigurationTitle}">
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Configuration}">
+            <StackLayout
+                Margin="25" Spacing="5"
+                Orientation="Vertical">
+                <Label
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Text="{i18n:Translate PrivacityPoliciesTitle}">
+                </Label>
+                <Label
+                    FontSize="Medium"
+                    Text="{Binding Privacity}">
+                </Label>
+
+                <Label
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Text="{i18n:Translate TermsOfUsePoliciesTitle}">
+                </Label>
+                <Label
+                    FontSize="Medium"
+                    Text="{Binding TermsOfUse}">
+                </Label>
+
+                <Label
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Text="{i18n:Translate AboutPoliciesTitle}">
+                </Label>
+                <Label
+                    FontSize="Medium"
+                    Text="{Binding AboutMessage}">
+                </Label>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

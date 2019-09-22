@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.SheduleBusPage"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="{i18n:Translate SheduleTitle}">
+    <ContentPage.ToolbarItems>
+        <OnPlatform x:TypeArguments="ToolbarItem">
+             <OnPlatform.iOS>
+                  <ToolbarItem Text="{i18n:Translate HomeNavBar}" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.iOS>
+             <OnPlatform.Android>
+                 <ToolbarItem Icon="icon_home" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding SheduleBus}">
+            <StackLayout
+                Margin="15, 25, 15, 15">
+                <StackLayout
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal">
+                    <Label 
+                        x:Name="originTitle"
+                        FontSize="Large"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        Text="{Binding OriginCore.Name, Mode=TwoWay}" 
+                        HorizontalOptions="Center"
+                        VerticalOptions="CenterAndExpand">
+                    </Label>
+                    <Label 
+                        FontSize="Large"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        Text="-" 
+                        HorizontalOptions="Center"
+                        VerticalOptions="CenterAndExpand">
+                    </Label>
+                    <Label 
+                        x:Name="destinyTitle"
+                        FontSize="Large"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        Text="{Binding DestinyCore.Name, Mode=TwoWay}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="CenterAndExpand">
+                    </Label>
+                </StackLayout>
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Button
+                        BackgroundColor="{StaticResource MainColor}"
+                        TextColor="{StaticResource FontColorLight}"
+                        x:Name="switchShedule"
+                        Text="{i18n:Translate SwitchButton}"
+                        Image="icon_switch"
+                        BorderRadius="8"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center">
+                    </Button>
+                    <Button
+                        x:Name="btnStops"
+                        BackgroundColor="{StaticResource MainColor}"
+                        TextColor="{StaticResource FontColorLight}"
+                        Image="icon_stop"
+                        BorderRadius="8"
+                        Text="{i18n:Translate StopButton}"
+                        Command="{Binding GoToBusStopsCommand}"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center">
+                    </Button>
+                </StackLayout>
+                <ActivityIndicator
+                    x:Name="indicator"
+                    IsRunning="{Binding IsRunning}">
+                </ActivityIndicator>
+                <!-- SHEDULE  -->
+                <ScrollView 
+                    Orientation="Horizontal"
+                    Margin="0, 0, 0, 10">
+                    <Grid 
+                        x:Name="sheduleBusTable"
+                        BackgroundColor="Black"
+                        ColumnSpacing="1"
+                        RowSpacing="1">
+                    </Grid>
+                </ScrollView>
+                <Label
+                    Text="{i18n:Translate NotShedule}"
+                    x:Name="notShedule"
+                    FontSize="Medium"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                </Label>
+                <!-- END -->
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

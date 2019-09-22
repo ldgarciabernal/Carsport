@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.AllMyConversationsPage"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="{i18n:Translate AllMyConversationTitle}">
+    <ContentPage.ToolbarItems>
+        <OnPlatform x:TypeArguments="ToolbarItem">
+             <OnPlatform.iOS>
+                  <ToolbarItem Text="{i18n:Translate HomeNavBar}" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.iOS>
+             <OnPlatform.Android>
+                 <ToolbarItem Icon="icon_home" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding AllMyConversations}"
+            Padding="5"
+            Margin="15, 5, 15, 5">
+            <SearchBar
+                BackgroundColor="Transparent"
+                HeightRequest="40"
+                Placeholder="{i18n:Translate NotificationSearchPlaceHolder}"
+                SearchCommand="{Binding SearchCommand}"
+                Text="{Binding Filter}">
+            </SearchBar>
+            <ListView
+                HasUnevenRows="True"
+                IsRefreshing="{Binding IsRefreshing}"
+                IsPullToRefreshEnabled="True"
+                ItemsSource="{Binding Conversations}"
+                RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GotoConversationCommand}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Orientation="Vertical" Margin="10,10" HorizontalOptions="Start" VerticalOptions="Start" Grid.Column="0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label FontSize="Default" TextColor="Black" Text="{Binding UserName}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label FontSize="Default" TextColor="Black" Text="{Binding LastMessage}" VerticalOptions="Center"></Label>
+                                        <Label FontSize="Default" TextColor="Black" Text="{Binding LastDate, StringFormat='{}{0:HH:mm}'}" VerticalOptions="Center" HorizontalOptions="End"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                                <Image
+                                    Grid.Column="1"
+                                    Source="ic_arrow_right_dark"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="End">
+                                </Image>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

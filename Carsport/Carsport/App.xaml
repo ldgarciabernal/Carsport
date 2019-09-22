@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:Carsport.Infrastructure"
+             x:Class="Carsport.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Locator -->
+            <infra:InstanceLocator x:Key="Locator"/>
+            
+            <!-- APIs -->
+            <x:String x:Key="APIConsorcio">http://api.ctan.es/</x:String>
+            <x:String x:Key="ConsorcioId">v1/Consorcios/2</x:String>
+            <x:String x:Key="APIMovilidad">https://movilidadicaapi.azurewebsites.net</x:String>
+            <x:String x:Key="APIprefix">/api/</x:String>
+            <x:String x:Key="AllCores">/nucleos/</x:String>
+            <x:String x:Key="AllCommunes">/municipios/</x:String>
+            <x:String x:Key="StationController">Stations/</x:String>
+            <x:String x:Key="BycicleController">Bycicles/</x:String>
+            <x:String x:Key="UsersController">Users/</x:String>
+            <x:String x:Key="NotificationsController">Notifications/</x:String>
+            <x:String x:Key="RoutesController">Routes/</x:String>
+            <x:String x:Key="CitiesController">Cities/</x:String>
+            <x:String x:Key="ConversationController">Conversations/</x:String>
+            <x:String x:Key="MessagesController">Messages/</x:String>
+
+            <!-- Style -->
+            <Color x:Key="MainColor">#0D1935</Color>
+            <Color x:Key="BackgroundColorDark">#0B1544</Color>
+            <Color x:Key="BackgroundColorLight">#FFFFFF</Color>
+            <Color x:Key="FontColorLight">#E7E4EF</Color>
+            <Color x:Key="FontColorDark">#0F0E0F</Color>
+            <Color x:Key="DangerColor">#D04931</Color>
+            <Color x:Key="WarningColor">#FFCB3F</Color>
+            <Color x:Key="BackgroundMenu">#F5F5F5</Color>
+            <Color x:Key="ColorMenu">#8BBCFF</Color>
+            
+            <!-- Terms and privacity policies -->
+            <x:String x:Key="About">
+                Applicación realizada como trabajo fin de grado por un alumno de la Escuela Superior de Ingeniería.
+            </x:String>
+            <x:String x:Key="Privacity">Politica de privacidad</x:String>
+            <x:String x:Key="TermsOfUse">Terminos de uso</x:String>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

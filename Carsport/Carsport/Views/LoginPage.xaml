@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.LoginPage"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             NavigationPage.HasNavigationBar="false"
+             Title="Login">
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Login}">
+            <StackLayout
+                Margin="25"
+                VerticalOptions="StartAndExpand">
+                <Image
+                    Source="Logo_UCA"
+                    WidthRequest="150"
+                    Margin="0, 20">
+                </Image>
+
+                <Label
+                    Text="{i18n:Translate EmailLoginLabel}">
+                </Label>
+                <Entry
+                    Keyboard="Email"
+                    Placeholder="{i18n:Translate EmailLoginPlaceHolder}"
+                    Text="{Binding Email, Mode=TwoWay}">
+                </Entry>
+
+                <Label
+                    Text="{i18n:Translate PasswordLoginLabel}">
+                </Label>
+                <Entry
+                    IsPassword="true"
+                    Placeholder="{i18n:Translate PasswordLoginPlaceHolder}"
+                    Text="{Binding Password, Mode=TwoWay}">
+                </Entry>
+
+                <StackLayout
+                    Orientation="Horizontal"
+                    Margin="0, 15">
+                    <Label
+                        Text="{i18n:Translate KeepLogin}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="StartAndExpand">
+                    </Label>
+                    <Switch
+                        HorizontalOptions="End"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                        IsToggled="{Binding IsRemembered, Mode=TwoWay}">
+                    </Switch>
+                </StackLayout>
+
+                <Button
+                    Command="{Binding LoginCommand}"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                    Margin="0"
+                    FontSize="12"
+                    Text="{i18n:Translate ButtonLogin}"
+                    TextColor="White"
+                    HeightRequest="36"
+                    BackgroundColor="#3285C8"
+                    BorderRadius="8">
+                </Button>
+                <StackLayout
+                    Margin="25, 15"
+                    Orientation="Horizontal"
+                    VerticalOptions="EndAndExpand">
+
+                    <Label
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{i18n:Translate RegisterLink}"
+                        TextColor="#0072BD">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding RegisterCommand}">
+                            </TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+                        HorizontalOptions="CenterAndExpand"
+                        Text="|"
+                        TextColor="#0072BD">
+                    </Label>
+
+                    <Label
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{i18n:Translate ForgotPasswordLink}"
+                        TextColor="#0072BD">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding ForgotPasswordCommand}">
+                            </TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

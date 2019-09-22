@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.AddRoutePage"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="{i18n:Translate CreateRouteTitle}">
+    <ContentPage.ToolbarItems>
+        <OnPlatform x:TypeArguments="ToolbarItem">
+             <OnPlatform.iOS>
+                  <ToolbarItem Text="{i18n:Translate HomeNavBar}" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.iOS>
+             <OnPlatform.Android>
+                 <ToolbarItem Icon="icon_home" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding AddRoute}">
+            <StackLayout Margin="20, 10" Spacing="5" VerticalOptions="Start">
+
+                <Label Text="{i18n:Translate LabelOriginCity}" FontSize="18" TextColor="Black"/>
+                <Picker
+                    ItemsSource="{Binding OriginCities}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding OriginCity}" 
+                    Title="{i18n:Translate PickerOriginCity}"/>
+
+                <Label Text="{i18n:Translate LabelDestinyCity}" FontSize="18" TextColor="Black"/>
+                <Picker
+                    ItemsSource="{Binding DestinyCities}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding DestinyCity}" 
+                    Title="{i18n:Translate PickerDestinyCity}"/>
+
+                <Label Text="{i18n:Translate LabelDate}" FontSize="18" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal">
+                    <DatePicker
+                        Date="{Binding Date}"
+                        MinimumDate="{Binding MinimumDate}"/>
+                    <TimePicker
+                        Time="{Binding Time}"/>
+                </StackLayout>
+
+                <Label Text="{i18n:Translate LabelDescription}" FontSize="18" TextColor="Black"/>
+                <Editor Text="{Binding Description}" FontSize="16" TextColor="#1C1C1C" HeightRequest="80"/>
+
+                <Label Text="{i18n:Translate LabelNumOfSeat}" FontSize="18" TextColor="Black"/>
+                <Entry Text="{Binding NumOfSeats}" Keyboard="Numeric" FontSize="16" TextColor="#1C1C1C"/>
+
+                <Image
+                    Source="{Binding ImageSource}"
+                    Aspect="AspectFill"
+                    WidthRequest="160"
+                    HeightRequest="160">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label
+                    FontSize="Small"
+                    HorizontalOptions="Center"
+                    Text="{i18n:Translate ChangeImage}">
+                </Label>
+
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}"
+                    VerticalOptions="CenterAndExpand">
+                </ActivityIndicator>
+                
+                <Button 
+                    Margin="0, 0, 0, 10"
+                    Command="{Binding SaveRouteCommand}" 
+                    IsEnabled="{Binding IsEnable}"
+                    Text="{i18n:Translate ButtonCreateRoute}" 
+                    BackgroundColor="{StaticResource MainColor}" 
+                    HorizontalOptions="FillAndExpand" 
+                    TextColor="{StaticResource FontColorLight}"
+                    BorderRadius="8"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

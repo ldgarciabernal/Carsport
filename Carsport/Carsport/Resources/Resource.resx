@@ -1,0 +1,591 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Error" xml:space="preserve">
+    <value>Error!</value>
+  </data>
+  <data name="CarButton" xml:space="preserve">
+    <value>Carpool</value>
+  </data>
+  <data name="BusButton" xml:space="preserve">
+    <value>Buses Schedules</value>
+  </data>
+  <data name="TrainButton" xml:space="preserve">
+    <value>Trains Schedules</value>
+  </data>
+  <data name="BikeButton" xml:space="preserve">
+    <value>Bike Parking Lot</value>
+  </data>
+  <data name="DashBoardTitle" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="AcceptDisplay" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="NoInternetConnection" xml:space="preserve">
+    <value>You don't have an internet connection, please connect your internet.</value>
+  </data>
+  <data name="CommuneOriginValidation" xml:space="preserve">
+    <value>You must select a municipality of origin.</value>
+  </data>
+  <data name="CommuneDestinyValidation" xml:space="preserve">
+    <value>You must select a municipality of destiny.</value>
+  </data>
+  <data name="CoreOriginValidation" xml:space="preserve">
+    <value>You must select an origin core.</value>
+  </data>
+  <data name="CoreDestinyValidation" xml:space="preserve">
+    <value>You must select an destiny core.</value>
+  </data>
+  <data name="InternetError" xml:space="preserve">
+    <value>Check you internet connection.</value>
+  </data>
+  <data name="OkMessage" xml:space="preserve">
+    <value>Ok!</value>
+  </data>
+  <data name="SwitchButton" xml:space="preserve">
+    <value>Reverse schedule</value>
+  </data>
+  <data name="StopButton" xml:space="preserve">
+    <value>Stand</value>
+  </data>
+  <data name="BusTitle" xml:space="preserve">
+    <value>Search schedule</value>
+  </data>
+  <data name="LabelCommuneOrigin" xml:space="preserve">
+    <value>Municipality of Origin</value>
+  </data>
+  <data name="PickerCommuneOrigin" xml:space="preserve">
+    <value>Select a municipality of origin</value>
+  </data>
+  <data name="LabelCoreOrigin" xml:space="preserve">
+    <value>Origin Core</value>
+  </data>
+  <data name="PickerCoreOrigin" xml:space="preserve">
+    <value>Select an origin core</value>
+  </data>
+  <data name="LabelCommuneDestiny" xml:space="preserve">
+    <value>Destination Municipality</value>
+  </data>
+  <data name="PickerCommuneDestiny" xml:space="preserve">
+    <value>Select a destination municipality</value>
+  </data>
+  <data name="LabelCoreDestiny" xml:space="preserve">
+    <value>Destination Core</value>
+  </data>
+  <data name="PickerCoreDestiny" xml:space="preserve">
+    <value>Select an destiny core</value>
+  </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SheduleTitle" xml:space="preserve">
+    <value>Shedules</value>
+  </data>
+  <data name="PickerLines" xml:space="preserve">
+    <value>Select a line</value>
+  </data>
+  <data name="StopTittle" xml:space="preserve">
+    <value>Stands</value>
+  </data>
+  <data name="NotShedule" xml:space="preserve">
+    <value>Shedule does't found!</value>
+  </data>
+  <data name="TrainTitle" xml:space="preserve">
+    <value>Trains Schedules</value>
+  </data>
+  <data name="LabelStationOrigin" xml:space="preserve">
+    <value>Station of origin</value>
+  </data>
+  <data name="LabelStationDestiny" xml:space="preserve">
+    <value>Station of destiny</value>
+  </data>
+  <data name="LabelStationPickerOrigin" xml:space="preserve">
+    <value>Select an origin station</value>
+  </data>
+  <data name="LabelStationPickerDestiny" xml:space="preserve">
+    <value>Select a destiny station</value>
+  </data>
+  <data name="OriginStationValidation" xml:space="preserve">
+    <value>You must select an origin station.</value>
+  </data>
+  <data name="DestinyStationValidation" xml:space="preserve">
+    <value>You must select a destiny station.</value>
+  </data>
+  <data name="EqualsStationValidation" xml:space="preserve">
+    <value>The origin station cannot be the same as the destination station.</value>
+  </data>
+  <data name="TrainSheduleTitle" xml:space="preserve">
+    <value>Shedule</value>
+  </data>
+  <data name="StationTittle" xml:space="preserve">
+    <value>Stations</value>
+  </data>
+  <data name="StationButton" xml:space="preserve">
+    <value>Stations</value>
+  </data>
+  <data name="BikeTitle" xml:space="preserve">
+    <value>Bike Parking Lot</value>
+  </data>
+  <data name="PickerBycicles" xml:space="preserve">
+    <value>Select a university</value>
+  </data>
+  <data name="EmailLoginLabel" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="EmailLoginPlaceHolder" xml:space="preserve">
+    <value>Enter university mail...</value>
+  </data>
+  <data name="PasswordLoginLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordLoginPlaceHolder" xml:space="preserve">
+    <value>Enter your password...</value>
+  </data>
+  <data name="KeepLogin" xml:space="preserve">
+    <value>Keep logged in</value>
+  </data>
+  <data name="ButtonLogin" xml:space="preserve">
+    <value>Log-in</value>
+  </data>
+  <data name="RegisterLink" xml:space="preserve">
+    <value>Sign up</value>
+  </data>
+  <data name="ForgotPasswordLink" xml:space="preserve">
+    <value>Forgot password</value>
+  </data>
+  <data name="EmailValidation" xml:space="preserve">
+    <value>You must enter your E-mail.</value>
+  </data>
+  <data name="PasswordValidation" xml:space="preserve">
+    <value>You must enter your password.</value>
+  </data>
+  <data name="GetTokenWrong" xml:space="preserve">
+    <value>At this time you can't connect to the server, try again later.</value>
+  </data>
+  <data name="CarTitle" xml:space="preserve">
+    <value>Carpool</value>
+  </data>
+  <data name="ProfileTitle" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="LogOutTitle" xml:space="preserve">
+    <value>LogOut</value>
+  </data>
+  <data name="ChangeImage" xml:space="preserve">
+    <value>Tap in the image to change.</value>
+  </data>
+  <data name="RegisterFirstName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="RegisterFirstNamePlaceholder" xml:space="preserve">
+    <value>Enter your name...</value>
+  </data>
+  <data name="RegisterLastName" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="RegisterLastNamePlaceholder" xml:space="preserve">
+    <value>Enter your lastname...</value>
+  </data>
+  <data name="RegisterEMail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="RegisterEmailPlaceHolder" xml:space="preserve">
+    <value>Enter your E-mail...</value>
+  </data>
+  <data name="RegisterPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RegisterPasswordPlaceHolder" xml:space="preserve">
+    <value>Enter your password...</value>
+  </data>
+  <data name="RegisterPasswordConfirm" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="RegisterPasswordConfirmPlaceHolder" xml:space="preserve">
+    <value>Enter your confirm password...</value>
+  </data>
+  <data name="RegisterSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="RegisterFirstNameError" xml:space="preserve">
+    <value>You must enter your name.</value>
+  </data>
+  <data name="RegisterLastNameError" xml:space="preserve">
+    <value>You must enter your surname.</value>
+  </data>
+  <data name="RegisterEMailError" xml:space="preserve">
+    <value>You must enter your E-mail.</value>
+  </data>
+  <data name="RegisterPasswordError" xml:space="preserve">
+    <value>You must enter a password, minimum 6 characters.</value>
+  </data>
+  <data name="RegisterPasswordConfirmError" xml:space="preserve">
+    <value>You must enter a confirm password.</value>
+  </data>
+  <data name="RegisterPasswordsNoMatch" xml:space="preserve">
+    <value>Passwords do not match.</value>
+  </data>
+  <data name="ImageSource" xml:space="preserve">
+    <value>Where do you take the picture?</value>
+  </data>
+  <data name="FromGallery" xml:space="preserve">
+    <value>From gallery</value>
+  </data>
+  <data name="NewPicture" xml:space="preserve">
+    <value>Take a new picture</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ConfirmRegister" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="RegisterConfirmation" xml:space="preserve">
+    <value>The user was created successfully. Now you can enter with the email and the assigned password.</value>
+  </data>
+  <data name="NotificationTitle" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="NotificationSearchPlaceHolder" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ConfirmDeleteRoute" xml:space="preserve">
+    <value>Delete route</value>
+  </data>
+  <data name="DeleteRouteConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete this route?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="RoutesTitle" xml:space="preserve">
+    <value>Car rutes</value>
+  </data>
+  <data name="SearchRoute" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="NumOfSeatValidation" xml:space="preserve">
+    <value>You must enter the number of available places.</value>
+  </data>
+  <data name="OriginCityValidation" xml:space="preserve">
+    <value>You must select a source for the route.</value>
+  </data>
+  <data name="DestinyCityValidation" xml:space="preserve">
+    <value>You must select a destination for the route.</value>
+  </data>
+  <data name="DateValidation" xml:space="preserve">
+    <value>You must enter the day of the route.</value>
+  </data>
+  <data name="TimeValidation" xml:space="preserve">
+    <value>You must enter the time of the route.</value>
+  </data>
+  <data name="NumOfSeatMinValidation" xml:space="preserve">
+    <value>The number of available places must be greater than 0.</value>
+  </data>
+  <data name="CreateRouteTitle" xml:space="preserve">
+    <value>Create route</value>
+  </data>
+  <data name="ButtonCreateRoute" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="LabelNumOfSeat" xml:space="preserve">
+    <value>Number of places available</value>
+  </data>
+  <data name="LabelDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="LabelDestinyCity" xml:space="preserve">
+    <value>City of destination</value>
+  </data>
+  <data name="LabelOriginCity" xml:space="preserve">
+    <value>City of origin</value>
+  </data>
+  <data name="PickerOriginCity" xml:space="preserve">
+    <value>Select a city of origin</value>
+  </data>
+  <data name="PickerDestinyCity" xml:space="preserve">
+    <value>Select a city of destination</value>
+  </data>
+  <data name="SuccessfulEdit" xml:space="preserve">
+    <value>Edited route</value>
+  </data>
+  <data name="EditMessages" xml:space="preserve">
+    <value>The route has been successfully edited.</value>
+  </data>
+  <data name="LabelDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ConfigurationTitle" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="PrivacityPoliciesTitle" xml:space="preserve">
+    <value>Privacy policies</value>
+  </data>
+  <data name="TermsOfUsePoliciesTitle" xml:space="preserve">
+    <value>Terms of uses</value>
+  </data>
+  <data name="AboutPoliciesTitle" xml:space="preserve">
+    <value>About us</value>
+  </data>
+  <data name="ChatMenuTitle" xml:space="preserve">
+    <value>Chats</value>
+  </data>
+  <data name="MyRouteMenuTitle" xml:space="preserve">
+    <value>My routes</value>
+  </data>
+  <data name="AddRouteMenuTitle" xml:space="preserve">
+    <value>Create route</value>
+  </data>
+  <data name="ConfigurationMenuTitle" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <data name="BusMenuTitle" xml:space="preserve">
+    <value>Buses Schedules</value>
+  </data>
+  <data name="ChangePasswordSave" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="ConfirmPasswordPlaceholder" xml:space="preserve">
+    <value>Confirm password...</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="NewPasswordPlaceholder" xml:space="preserve">
+    <value>Enter a new password...</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="RemoveAccountButton" xml:space="preserve">
+    <value>Remove account</value>
+  </data>
+  <data name="SuccessfulChangePassword" xml:space="preserve">
+    <value>Successfully updated password.</value>
+  </data>
+  <data name="ChangePassTitle" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="ConfirmDeleteAccount" xml:space="preserve">
+    <value>Remove account</value>
+  </data>
+  <data name="DeleteAccountConfirmation" xml:space="preserve">
+    <value>Are you sure you want to permanently delete your account?</value>
+  </data>
+  <data name="RouteOriginLabel" xml:space="preserve">
+    <value>Origin: </value>
+  </data>
+  <data name="RouteDestinyLabel" xml:space="preserve">
+    <value>Destiny: </value>
+  </data>
+  <data name="RouteDateLabel" xml:space="preserve">
+    <value>Date: </value>
+  </data>
+  <data name="RouteNumSeatsLabel" xml:space="preserve">
+    <value>Seats: </value>
+  </data>
+  <data name="ChatMessagesPlaceHolder" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="ForgotPasswordLabel" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="ForgotPasswordMessage" xml:space="preserve">
+    <value>A message will be sent to your email with your new password.</value>
+  </data>
+  <data name="ForgotPasswordPlaceHolder" xml:space="preserve">
+    <value>Email UCA</value>
+  </data>
+  <data name="ForgotPasswordButtonSend" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="ForgotPasswodButtonBack" xml:space="preserve">
+    <value>Go back</value>
+  </data>
+  <data name="ForgotPasswodTitle" xml:space="preserve">
+    <value>Forgot password</value>
+  </data>
+  <data name="DetailRouteOriginLabel" xml:space="preserve">
+    <value>Origin: </value>
+  </data>
+  <data name="DetailRouteDestinyLabel" xml:space="preserve">
+    <value>Destiny: </value>
+  </data>
+  <data name="DetailRouteDateLabel" xml:space="preserve">
+    <value>Date: </value>
+  </data>
+  <data name="DetailRouteSeatsLabel" xml:space="preserve">
+    <value>Number of seats: </value>
+  </data>
+  <data name="DetailRouteEmailLabel" xml:space="preserve">
+    <value>Email: </value>
+  </data>
+  <data name="DetailRouteRemoveButton" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="DetailRouteEditLabel" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="DetailRouteChatListButton" xml:space="preserve">
+    <value>Chat list</value>
+  </data>
+  <data name="DetailRouteChatButton" xml:space="preserve">
+    <value>Star a chat</value>
+  </data>
+  <data name="AllMyConversationTitle" xml:space="preserve">
+    <value>My chats</value>
+  </data>
+  <data name="DetailRoutesTitle" xml:space="preserve">
+    <value>Detail route</value>
+  </data>
+  <data name="RegisterEMailUcaError" xml:space="preserve">
+    <value>The mail you just entered is not valid, make sure you are using your university mail.</value>
+  </data>
+  <data name="UpdateProfileMessage" xml:space="preserve">
+    <value>To see the changes restart the application.</value>
+  </data>
+  <data name="UpdateProfileTitle" xml:space="preserve">
+    <value>Successfully updated</value>
+  </data>
+  <data name="EditRouteTitle" xml:space="preserve">
+    <value>Edit route</value>
+  </data>
+  <data name="DetailRouteDescriptionLabel" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="HomeNavBar" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="AddNavBar" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="OriginDestinyCityValidation" xml:space="preserve">
+    <value>The city of origin cannot be the same as the city of destination.</value>
+  </data>
+</root>

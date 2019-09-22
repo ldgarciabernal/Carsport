@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.DetailRoutePage"
+             xmlns:i18n="clr-namespace:Carsport.Helpers"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="{i18n:Translate DetailRoutesTitle}">
+    <ContentPage.ToolbarItems>
+        <OnPlatform x:TypeArguments="ToolbarItem">
+             <OnPlatform.iOS>
+                  <ToolbarItem Text="{i18n:Translate HomeNavBar}" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.iOS>
+             <OnPlatform.Android>
+                 <ToolbarItem Icon="icon_home" Command="{Binding GoToDashBoardCommand}"/>
+             </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView
+                BindingContext="{Binding DetailRoute}">
+            <StackLayout 
+                Margin="25" 
+                Spacing="15" 
+                VerticalOptions="FillAndExpand" 
+                Orientation="Vertical">
+                <StackLayout VerticalOptions="Start" Orientation="Horizontal">
+                    <Label Text="{i18n:Translate DetailRouteOriginLabel}" FontSize="18" TextColor="Black"/>
+                    <Label Text="{Binding RouteView.Origin.Name}" FontSize="18" TextColor="#1C1C1C"/>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="Start" Orientation="Horizontal">
+                    <Label Text="{i18n:Translate DetailRouteDestinyLabel}" FontSize="18" TextColor="Black"/>
+                    <Label Text="{Binding RouteView.Destiny.Name}" FontSize="18" TextColor="#1C1C1C"/>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="Start" Orientation="Horizontal">
+                    <Label Text="{i18n:Translate DetailRouteDateLabel}" FontSize="18" TextColor="Black"/>
+                    <Label Text="{Binding RouteView.Date, StringFormat='{}{0:dd-MM-yyyy HH:mm}'}" FontSize="18" TextColor="#1C1C1C"/>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="Start" Orientation="Horizontal">
+                    <Label Text="{i18n:Translate DetailRouteSeatsLabel}" FontSize="18" TextColor="Black"/>
+                    <Label Text="{Binding RouteView.NumSeats}" FontSize="18" TextColor="#1C1C1C"/>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="Start" Orientation="Vertical">
+                    <Label Text="{i18n:Translate DetailRouteDescriptionLabel}" FontSize="18" TextColor="Black"/>
+                    <Label Text="{Binding RouteView.Description}" FontSize="18" TextColor="#1C1C1C"/>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="Start" Orientation="Horizontal">
+                    <Label Text="{i18n:Translate DetailRouteEmailLabel}" FontSize="18" TextColor="Black"/>
+                    <Label Text="{Binding RouteView.Creator.EMail}" FontSize="18" TextColor="#1C1C1C" WidthRequest="200"/>
+                </StackLayout>
+
+                <StackLayout>
+                    <Image
+                        Source="{Binding ImageSource}"
+                        Aspect="AspectFill"
+                        WidthRequest="160"
+                        HeightRequest="160">
+                    </Image>
+                </StackLayout>
+
+                <StackLayout
+                    Margin="0, 10, 0, 0"
+                    Orientation="Horizontal"
+                    VerticalOptions="End">
+                    <Button BorderRadius="8" HeightRequest="46" HorizontalOptions="FillAndExpand" Command="{Binding DeleteRouteCommand}"
+                            Text="{i18n:Translate DetailRouteRemoveButton}" IsVisible="{Binding IsOwner}" TextColor="White" BackgroundColor="#D04931"></Button>
+                    <Button BorderRadius="8" HeightRequest="46" HorizontalOptions="FillAndExpand" Command="{Binding EditRouteCommand}"
+                            Text="{i18n:Translate DetailRouteEditLabel}" IsVisible="{Binding IsOwner}" TextColor="White" BackgroundColor="#FFCB3F"></Button>
+                </StackLayout>
+
+                <Button Margin="0, 20" BorderRadius="8" VerticalOptions="End" HorizontalOptions="FillAndExpand" HeightRequest="46" Command="{Binding GoToChatListCommand}"
+                        IsVisible="{Binding IsOwner}" Text="{i18n:Translate DetailRouteChatListButton}" BackgroundColor="{StaticResource MainColor}" TextColor="White"/>
+                <Button Margin="0, 20" BorderRadius="8" VerticalOptions="End" HorizontalOptions="FillAndExpand" HeightRequest="46" Command="{Binding GoToConversationCommand}"
+                        IsVisible="{Binding IsVisible}" Text="{i18n:Translate DetailRouteChatButton}" BackgroundColor="{StaticResource MainColor}" TextColor="White"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

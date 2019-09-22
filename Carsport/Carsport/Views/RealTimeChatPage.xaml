@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Carsport.Views.RealTimeChatPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout BindingContext="{Binding RealTiemChat}" Padding="10">
+
+            <Entry Text="{Binding ChatMessage.User}"/>
+            <Entry Text="{Binding ChatMessage.Message}"/>
+
+            <Button Text="Send Message" IsEnabled="{Binding IsConnected}"
+                    Command="{Binding SendMessageCommand}"/>
+
+            <ActivityIndicator IsEnabled="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+
+            <ListView ItemsSource="{Binding Messages}" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Message}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
